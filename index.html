@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Invitacion de 15 - Alondra</title>
+    <link rel="icon" href="img-pruebas/numero-15.png">
+</head>
+
+
+<body>
+    <header>
+        <div class="header-imagen">a</div>
+        <div class="header-texto">
+            <h1> ALONDRA </h1>
+            <h2> Mis quince años </h2>
+        </div>
+        
+    </header>
+    <div class="header-celular">
+        <h1  class="celular"> ALONDRA </h1>
+        <h2 class="celular"> Mis quince años </h2>
+    </div>
+
+
+    <main>
+        <div class="contador">
+            <div class="contador-texto">
+                <h3> Tiempo restante: </h3>
+                <div id="cuentaRegresiva"></div>
+            </div>
+        </div>
+
+        <div class="descripcion contenedores">
+            <img src="img-pruebas/papel-picado-2.png" alt="error img" class="img-iconos">
+            <h2> FIESTA </h2>
+            <p>¡Te espero el dia 05 de octubre de 21:30 a 05:30 hs para festejar este gran momento de mi vida! <br>
+                Circulo Italiano(Salon florencia) La Plata. Hace click en el boton de abajo y encontra mas información sobre el lugar, ¡Nos vemos!
+            </p>
+            <a href="https://maps.app.goo.gl/Y7WkX1Erfo6druJa6" class="botones"> Cómo llegar </a>
+        </div>
+
+        <div class="galeria contenedores">
+            <div class="galeria-img">
+                <img src="img-pruebas/alonn1.jpg" alt="" class="galeria-imagenes">
+            </div>
+            <div class="galeria-img">
+                <img src="img-pruebas/alonn2.JPG" alt="" class="galeria-imagenes">
+            </div>
+            <div class="galeria-img">
+                <img src="img-pruebas/alonn3.jpg" alt="" class="galeria-imagenes">
+            </div>
+            <div class="galeria-img">
+                <img src="img-pruebas/alonn4.jpg" alt="" class="galeria-imagenes">
+            </div>
+        </div>
+
+        <div class="asistencia contenedores">
+            <h2> Confirmación de <br> asistencia </h2>
+            <p> Cuento con tu presencia. <br>
+                ¡Confirmá tu asistencia!</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScMGz-VNQjXMbQEvrQe-rwwDb6D7Bmbe32A5U_zxIUUNy0v2Q/viewform?usp=sf_link">Confirmar asistencia</a>
+        </div>
+        <div class="contenedores-violeta">
+            <img src="img-pruebas/codigo-de-vestimenta.png" alt="img de vestimenta" class="img-iconos">
+            <h2> Código de <br> vestimenta </h2>
+            <p> Elegante Sport </p>
+        </div>
+        <div class="instagram contenedores">
+                <img src="img-pruebas/instagram.png" alt="icono-ig" class="img-iconos">
+                <h2>@alon.baiza</h2>
+                <p> !Preparate para esta gran fiesta! <br>
+                    Podes seguirme en instagram para etiquetarme en fotos y videos. </p>
+                <a href="https://www.instagram.com/alon.baiza/"> Ver instagram </a>
+        </div>
+        <div class="contenedores-violeta">
+            <img src="img-pruebas/codigo-de-vestimenta.png" alt="img de vestimenta" class="img-iconos">
+            <p> El mejor regalo es tu presencia, pero si deseas regalarme algo mas... </p>
+            <a> CBU </a>
+        </div>
+        <div class="musica contenedores">
+                <h2 class="fiesta">¡Fiesta!</h2>
+                <img src="img-pruebas/nota-musical-2.png" alt="icono-musica" class="img-iconos">
+                <p> ¡Podes ayudarme sugiriendo las canciones que no pueden faltar en la fiesta!</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfP3qRYMvsbYU3fwQSzXbzA8hQf6tCgtToaPRyx-zmpXetrLw/viewform?usp=sf_link"> Sugerir canción </a>
+        </div>
+    </main>
+
+    <footer>
+        <h3> Creado por GJB </h3>
+    </footer>
+
+
+    <script>
+        // Define la fecha de finalización para la cuenta regresiva
+        const fechaFinalizacion = new Date("2024-10-05T21:30:00").getTime();
+    
+        // Actualiza el temporizador cada segundo
+        const temporizador = setInterval(function() {
+        const ahora = new Date().getTime();
+        const diferencia = fechaFinalizacion - ahora;
+    
+          // Calcula días, horas, minutos y segundos restantes
+          const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+          const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+          const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+    
+          // Muestra el resultado en el elemento con id "cuentaRegresiva"
+        document.getElementById("cuentaRegresiva").innerHTML = `
+            <div class="border"> 
+                <span> ${dias} </span><br>
+                <span> días </span> 
+            </div>
+            <div class="border"> 
+                <span> ${horas} </span><br>
+                <span> hs </span> 
+            </div>
+            <div class="border"> 
+                <span> ${minutos} </span><br>
+                <span> min </span> 
+            </div>
+            <div> 
+                <span> ${segundos} </span><br>
+                <span> seg </span> 
+            </div>
+        `;
+    
+          // Si la cuenta regresiva llega a cero, muestra un mensaje
+        if (diferencia < 0) {
+            clearInterval(temporizador);
+            document.getElementById("cuentaRegresiva").innerHTML = "¡La cuenta regresiva ha terminado!";
+        }
+        }, 1000); // Actualiza cada segundo
+    </script>
+
+</body>
+</html>
